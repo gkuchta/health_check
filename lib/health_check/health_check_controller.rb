@@ -3,7 +3,7 @@
 
 module HealthCheck
   class HealthCheckController < ActionController::Base
-
+    skip_before_filter :authenticate_user!
     layout false if self.respond_to? :layout
 
     def index
