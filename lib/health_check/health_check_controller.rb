@@ -3,7 +3,8 @@
 
 module HealthCheck
   class HealthCheckController < ActionController::Base
-    skip_before_filter :authenticate_user!
+    skip_before_filter :authenticate_user!, :redirect_incomplete_users, 
+                       :redirect_to_parent_site
     layout false if self.respond_to? :layout
 
     def index
